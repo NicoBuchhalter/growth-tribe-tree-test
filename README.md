@@ -41,6 +41,7 @@ Trees API - Growth Tribe Interview Task
   bundle exec rake db:create db:migrate
 ```
 
+
 ## About
 
 This project is maintained by [Nicolas Buchhalter](https://github.com/NicoBuchhalter)
