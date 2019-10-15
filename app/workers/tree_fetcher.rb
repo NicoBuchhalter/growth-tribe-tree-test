@@ -4,14 +4,15 @@ class TreeFetcher
 
   sidekiq_options retry: false
 
-  base_uri 'https://random-tree.herokuapp.com'
+  base_uri Rails.application.credentials.tree_fetcher_url
 
   def perform
   	random_tree = JSON.parse(self.class.get('/').body)
-
-  	puts random_tree
   	root = TreeNode.create!(external_id: random_tree['id'])
   	create_children(root, random_tree['child'])
+    
+  rescue ActiveRecord::RecordInvalid
+    puts 'This tree has already been loaded'
   end
 
   private 
