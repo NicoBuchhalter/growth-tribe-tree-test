@@ -1,15 +1,15 @@
 class TreesController < ApplicationController
 
 	def show
-		render status: :ok, json: tree.serialize
+		render status: :ok, json: tree.serialize.first
 	end
 
 	def parent
-		render status: :ok, json: { parent_ids: node.ancestor_ids }
+		render status: :ok, json: { parent_ids: TreeNode.where(id: node.ancestor_ids).pluck(:external_id) }
 	end
 
 	def child
-		render status: :ok, json: node.serialize
+		render status: :ok, json: node.serialize.first
 	end
 
 	private
