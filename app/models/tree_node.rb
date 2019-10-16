@@ -6,6 +6,6 @@ class TreeNode < ApplicationRecord
 	def serialize
 		subtree.arrange_serializable do |parent, children|
 			{ id: parent.external_id, child: children }			
-		end 		
+		end.first		
 	end
 end

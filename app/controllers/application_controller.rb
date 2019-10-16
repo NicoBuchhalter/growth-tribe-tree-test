@@ -9,11 +9,11 @@ class ApplicationController < ActionController::API
   private
 
 	def render_tree_not_found
-		render status: :bad_request, json: { error:  "Tree with id #{params[:tree_id]} doesnt exist" }
+		render status: :not_found, json: { error:  "Tree with id #{params[:tree_id]} doesnt exist" }
 	end
 
 	def render_tree_node_not_found
-		render status: :bad_request, 
+		render status: :not_found, 
 					 json: { error:  "Node with id #{params[:id]} in Tree #{params[:tree_id]} doesnt exist" }
 	end
 end

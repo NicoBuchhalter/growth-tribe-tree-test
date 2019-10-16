@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://random-tree.herokuapp.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 16 Oct 2019 17:57:00 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"134a8d60acfde33b7f6e295ac8287859"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d9b72e07-41d0-4218-8e83-69d5b8eb9f3e
+      X-Runtime:
+      - '0.053662'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":1,"child":[{"id":2140,"child":[]},{"id":1179,"child":[{"id":7950,"child":[{"id":4963,"child":[]},{"id":5418,"child":[]}]},{"id":3291,"child":[]},{"id":4273,"child":[{"id":7177,"child":[]},{"id":3897,"child":[]}]}]},{"id":8480,"child":[{"id":4986,"child":[]},{"id":5818,"child":[]}]},{"id":4350,"child":[{"id":6902,"child":[{"id":6456,"child":[]},{"id":5536,"child":[]},{"id":6192,"child":[{"id":3111,"child":[]},{"id":5638,"child":[]}]}]},{"id":3865,"child":[{"id":2709,"child":[{"id":6093,"child":[]},{"id":3554,"child":[]}]},{"id":9763,"child":[]},{"id":5549,"child":[{"id":449,"child":[]},{"id":1072,"child":[]}]}]},{"id":4120,"child":[{"id":1200,"child":[{"id":4754,"child":[]},{"id":6573,"child":[]}]},{"id":2576,"child":[]},{"id":8210,"child":[{"id":5689,"child":[]},{"id":1592,"child":[]}]}]},{"id":7873,"child":[{"id":6013,"child":[]},{"id":2586,"child":[]}]}]},{"id":8403,"child":[{"id":753,"child":[]},{"id":7256,"child":[{"id":2634,"child":[]},{"id":2451,"child":[]}]},{"id":4705,"child":[{"id":4393,"child":[{"id":2180,"child":[]},{"id":7693,"child":[]}]},{"id":8095,"child":[]},{"id":7555,"child":[{"id":1130,"child":[]},{"id":2765,"child":[]}]}]},{"id":6464,"child":[]}]},{"id":4651,"child":[{"id":9530,"child":[]},{"id":8742,"child":[{"id":729,"child":[]},{"id":4635,"child":[]}]},{"id":6994,"child":[{"id":1274,"child":[]},{"id":1891,"child":[]}]},{"id":6954,"child":[]},{"id":3938,"child":[{"id":1405,"child":[{"id":2425,"child":[{"id":7386,"child":[]},{"id":9688,"child":[]}]},{"id":1461,"child":[{"id":9925,"child":[]},{"id":2660,"child":[]}]},{"id":8142,"child":[]}]},{"id":950,"child":[]},{"id":5952,"child":[]},{"id":657,"child":[{"id":2642,"child":[]},{"id":466,"child":[]}]}]}]}]}'
+    http_version: 
+  recorded_at: Wed, 16 Oct 2019 17:57:00 GMT
+recorded_with: VCR 5.0.0
