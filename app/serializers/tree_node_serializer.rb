@@ -6,7 +6,7 @@ class TreeNodeSerializer < ActiveModel::Serializer
 	end
 
 	def child
-		object.children.map do |node|
+		object.included_children.map do |node|
 			TreeNodeSerializer.new(node)
 		end
 	end

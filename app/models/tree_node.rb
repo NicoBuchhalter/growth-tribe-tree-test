@@ -6,9 +6,13 @@ class TreeNode < ApplicationRecord
 
 	belongs_to :parent, class_name: 'TreeNode', optional: true
 
-	has_many :children, -> { includes(:children) }, class_name: 'TreeNode', foreign_key: :parent_id
+	has_many :children, class_name: 'TreeNode', foreign_key: :parent_id
 
-	before_create :generate_ancestry
+	has_many :included_children, -> { includes(:included_children) }, class_name: 'TreeNode', foreign_key: :parent_id
+
+	before_save :generate_ancestry, if: :parent_id_changed?
+
+	before_save :update_children_ancestry, if: :ancestry_changed?
 
 	before_destroy :orphan_children
 
@@ -28,6 +32,12 @@ class TreeNode < ApplicationRecord
 		return self.ancestry = nil if parent_id.nil?
 		return self.ancestry = parent_id.to_s if parent.ancestry.nil?
 		self.ancestry = "#{parent.ancestry}/#{parent_id}"
+	end
+
+	def update_children_ancestry
+		included_children.each do |node|
+			node.update!(ancestry: "#{ancestry}/#{id}")
+		end
 	end
 
 	def orphan_children

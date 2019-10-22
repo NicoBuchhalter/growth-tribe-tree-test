@@ -42,6 +42,20 @@ describe TreeNode, type: :model do
 		end
 	end
 
+	describe '#update_children_ancestry' do 
+		context 'when updating ancestry' do 
+			it 'updates every descendant ancestry too' do
+				root_node = TreeNode.create(external_id: 1)
+				child_node = TreeNode.create(external_id: 2, parent: root_node)
+				grand_child_node = TreeNode.create(external_id: 3, parent: child_node)
+				grand_grand_child_node = TreeNode.create(external_id: 5, parent: grand_child_node)
+				root_node_2 = TreeNode.create(external_id: 4)
+				child_node.reload.update! parent_id: root_node_2.id
+				expect(grand_grand_child_node.reload.ancestry).to eq "#{root_node_2.id}/#{child_node.id}/#{grand_child_node.id}"
+			end
+		end
+	end
+
 	describe '#ancestor_ids' do 
 		context 'when no ancestry' do 
 			it 'returns empty array' do 
