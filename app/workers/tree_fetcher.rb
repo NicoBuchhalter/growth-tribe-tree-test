@@ -19,7 +19,7 @@ class TreeFetcher
 
   def create_children parent, children
   	children.each do |child|
-  		tree_node = TreeNode.create!(external_id: child['id'], parent: parent)
+  		tree_node = TreeNode.create(external_id: child['id'], parent: parent)
   		create_children tree_node, child['child']
   	end
   end

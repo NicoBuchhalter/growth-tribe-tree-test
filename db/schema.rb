@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_074435) do
+ActiveRecord::Schema.define(version: 2019_10_22_111502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 2019_10_15_074435) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "ancestry"
     t.integer "external_id"
+    t.bigint "parent_id"
     t.index ["ancestry"], name: "index_tree_nodes_on_ancestry"
+    t.index ["parent_id"], name: "index_tree_nodes_on_parent_id"
   end
 
+  add_foreign_key "tree_nodes", "tree_nodes", column: "parent_id"
 end

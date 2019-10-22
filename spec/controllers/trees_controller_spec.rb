@@ -18,7 +18,15 @@ describe TreesController, type: :controller do
 	    end
 
 	    it 'returns serialized tree' do
-	      expect(response_body).to eq root_tree_node.serialize.as_json
+        expected_serialization = {
+          id: root_tree_node.external_id, child: [
+            { id: tree_node_child_1.external_id, child: [] },
+            { id:  tree_node_child_2.external_id, child: [
+              { id: tree_node_child_3.external_id, child: [] }
+            ]}
+          ]
+        }
+	      expect(response_body).to eq expected_serialization.as_json
 	    end
 	  end
 
@@ -97,7 +105,12 @@ describe TreesController, type: :controller do
 	    end
 
 	    it 'returns the serialized node' do
-	      expect(response_body).to eq tree_node_child_2.serialize.as_json
+        expected_serialization = {
+          id: tree_node_child_2.external_id, child: [
+            { id: tree_node_child_3.external_id, child: [] }
+          ]
+        }
+	      expect(response_body).to eq expected_serialization.as_json
 	    end
 	  end
 

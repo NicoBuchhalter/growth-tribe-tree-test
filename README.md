@@ -78,6 +78,16 @@ Trees API - Growth Tribe Interview Task
 	rails server
 ```
 
+## Running Tests
+
+Tests are built using Rspec. To write new tests, add them in /spec directory.
+
+To run them:
+```bash
+	bundle exec rspec spec 
+```
+
+
 ## Deploying to Heroku
 
 ### 1- Login and create Heroku app

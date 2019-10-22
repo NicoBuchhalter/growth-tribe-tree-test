@@ -1,7 +1,7 @@
 class TreesController < ApplicationController
 
 	def show
-		render status: :ok, json: tree.serialize
+		render status: :ok, json: tree, each_serializer: TreeNodeSerializer
 	end
 
 	def parent
@@ -9,7 +9,7 @@ class TreesController < ApplicationController
 	end
 
 	def child
-		render status: :ok, json: node.serialize
+		render status: :ok, json: node, each_serializer: TreeNodeSerializer
 	end
 
 	private
