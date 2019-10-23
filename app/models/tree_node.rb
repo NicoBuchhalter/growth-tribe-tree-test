@@ -36,11 +36,14 @@ class TreeNode < ApplicationRecord
 
 	def update_children_ancestry
 		included_children.each do |node|
-			node.update!(ancestry: "#{ancestry}/#{id}")
+			node_ancestry = ancestry ? "#{ancestry}/#{id}" : id.to_s
+			node.update!(ancestry: node_ancestry)
 		end
 	end
 
 	def orphan_children
-		children.update_all ancestry: nil, parent_id: nil
+		included_children.each do |node|
+			node.update!(parent_id: nil)
+		end
 	end
 end
